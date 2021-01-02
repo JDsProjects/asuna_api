@@ -22,10 +22,10 @@ class Image:
       written = fp.write(data)
 
       if seek_start:
-          fp.seek(0)
+        fp.seek(0)
 
       return written
-      
+
     else:
       with open(fp, 'wb') as f:
-          return f.write(data)
+        return f.write(data)
