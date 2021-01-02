@@ -14,7 +14,7 @@ class Client:
     self._http_client = HTTPClient(session)
 
   def asuna_api_url(self,endpoint):
-    url = URL.build(scheme="https", host= "asuna.ga/api/", path=endpoint)
+    url = URL.build(scheme="https", host= "asuna.ga/api/", path="/"+endpoint.lstrip("/"))
     return str(url)
 
   async def get_gif(self,name):
