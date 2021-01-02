@@ -1,7 +1,7 @@
 import aiohttp
 from .http import HTTPClient
 from yarl import URL
-from .image import Image
+from .image import Image 
 
 class InputError(Exception):
   __slots__ = ()
@@ -14,7 +14,7 @@ class Client:
     self._http_client = HTTPClient(session)
 
   def asuna_api_url(self,endpoint):
-    url = URL.build(scheme="https", host= "asuna.ga/api/", path="/"+endpoint.lstrip("/"))
+    url = URL.build(scheme="https", host= "asuna.ga/api", path="/"+endpoint.lstrip("/"))
     return str(url)
 
   async def get_gif(self,name):
