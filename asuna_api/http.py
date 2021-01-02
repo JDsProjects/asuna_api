@@ -30,7 +30,7 @@ class HTTPClient:
 
       return content
 
-async def close(self):
-  if self.session is not None:
-    await self.session.close()
-    self.session = None
+  async def close(self):
+    if self.session is not None:
+      await self.session.close()
+      self.session = None
