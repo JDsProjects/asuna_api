@@ -48,7 +48,6 @@ class Client:
           x["changedToAt"] = "Original Name"
            
       mc_data = {"username":response["name"],"uuid":response["id"],"name_history":namehistory}
-     
       return Minecraft(mc_data)
 
     if isinstance(response,bytes):
@@ -60,7 +59,6 @@ class Client:
   
   def mchistory_uuid(self,uuid):
     url = URL.build(scheme="https",host="api.mojang.com/user/profiles",path="/"+uuid+"/names")
-    
     return str(url)
 
   async def close(self):
