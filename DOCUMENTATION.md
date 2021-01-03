@@ -16,5 +16,5 @@ After that, you will have to create the client:
 ```python
 import asuna_api
 
-client = asuna_api.Client()
+client = asuna_api.Client() #Alternatively you can use your own aiohttp.ClientSession by passing session=yoursession to this
 ```
