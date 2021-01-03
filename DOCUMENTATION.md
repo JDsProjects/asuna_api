@@ -85,3 +85,5 @@ A pre formatted list of the users name history
 
 #### MCuser.reversed_formatted_history
 A pre formatted list of the users name history in reversed order
+
+Please note this is heavily based on the sra wrapper code the mcUser object itself is the exact same as that api however with TimeChangedAt added.
