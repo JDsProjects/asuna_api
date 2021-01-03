@@ -40,6 +40,15 @@ Get a random funny gif.
 
 **Return type:** [Image](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
+### *await* client.mc_user(username)
+---
+Get the username history and UUID from a minecraft user.
+
+**Parameters:**\
+**- username** *(string)*: Name of the minecraft user.
+
+**Return type:** [MCuser](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
+
 ## Objects
 
 Here is explained what attributes the returned objects have
@@ -57,3 +66,22 @@ This will return a bytes object from the image
 #### *await* Image.save(filepath)
 Locally save the image.\
 **Note:** 'filepath' requires a *full* path! e.g. `/home/John/myimage.png`
+
+### MCuser
+---
+The object returned from `client.mc_user()`
+
+#### MCuser.name
+Minecraft username
+
+#### MCuser.uuid
+The users UUID
+
+#### MCuser.history
+This will return a *list* of *dicts* with the users name history and date it was changed.
+
+#### MCuser.formatted_history
+A pre formatted list of the users name history
+
+#### MCuser.reversed_formatted_history
+A pre formatted list of the users name history in reversed order
