@@ -7,8 +7,8 @@ For any questions and support for the wrapper, you can visit the [Discord suppor
 
 # Getting Started:
 To begin with, you'll have to install the package by doing one of the following commands:
-- `pip install -U asuna_api`
-- `python -m pip -U install asuna_api`
+- `pip install -U asuna-api`
+- `python -m pip -U install asuna-api`
 
 Or you can install directly from source by doing one of the following commands:
 - `pip install -U git+https://github.com/JDJGInc/asuna_api`
