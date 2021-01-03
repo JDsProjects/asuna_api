@@ -20,4 +20,4 @@ import asuna_api
 
 client = asuna_api.Client()
 ```
-For full usage, please read the [documentation]()
+For full usage, please read the [documentation](https://github.com/JDJGInc/asuna_api/blob/main/DOCUMENTATION.md)
