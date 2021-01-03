@@ -22,6 +22,8 @@ import asuna_api
 client = asuna_api.Client() #Alternatively you can use your own aiohttp.ClientSession by passing session=yoursession to this
 ```
 For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
+
+Also remember to await client.close() after you run your command(otherwise it may cause errors passing the session doesn't have this issue.)
  
 ## Using the wrapper:
  
