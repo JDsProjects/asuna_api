@@ -6,7 +6,7 @@ setup(
   license='MIT', 
   description = 'A python wrapper for the asuna api',
   author = 'JDJGIncOfficial',
-  author_email = 'your.email@domain.com',
+  author_email = 'jdjgbot@gmail.com',
   url = 'https://github.com/JDJGInc/asuna_api',
   download_url = 'https://github.com/user/reponame/archive/v_01.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
