@@ -21,3 +21,15 @@ import asuna_api
 
 client = asuna_api.Client() #Alternatively you can use your own aiohttp.ClientSession by passing session=yoursession to this
 ```
+For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
+ 
+## Using the wrapper:
+ 
+All available endpoints you can use.
+
+### *await* client.get_gif(option)
+---
+Get a random funny gif.
+
+**Available options:** "hug","kiss","neko","pat","slap","wholesome_foxes"
+
