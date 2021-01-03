@@ -2,6 +2,9 @@
 
 Please Note Some of the source came from(with permission):
 [Original Github](https://github.com/iDutchy/sr_api/)
+Python wrapper for asuna.ga I am not the creator the asuna api, and some of this code came from the iDutchy some-random-api project so credits to them. Credits to iDutchy for the Original source.
+
+For any questions and support for the wrapper, you can visit the Discord support server
 
 # Getting Started:
 To begin with, you'll have to install the package by doing one of the following commands:
