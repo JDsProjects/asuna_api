@@ -41,8 +41,8 @@ class Client:
       namehistory = await self._http_client.get(self.mchistory_uuid(response.get("id")))
       for x in namehistory:
         if "changedToAt" in x.keys():
-          changed_at=datetime.datetime.utcfromtimestamp(int(x["changedToAt"])/1000).strftime('%Y-%m-%d')
-          x["changedToAt"] = changed_at
+          x["changedToAt"] = datetime.datetime.utcfromtimestamp(int(x["changedToAt"])/1000).strftime('%Y-%m-%d')
+          x["timeChanged"]  = datetime.datetime.utcfromtimestamp(int(x["changedToAt"])/1000).strftime("%H:%M:%S")
         
         if not "changedToAt" in x.keys():
           x["changedToAt"] = "Original Name"
