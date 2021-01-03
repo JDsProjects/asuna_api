@@ -1,10 +1,15 @@
 from setuptools import setup
+with open("README.md", "r") as f:
+    long_description = f.read()
+
 setup(
   name = 'asuna_api',
   packages = ['asuna_api'],
   version = '0.2', 
   license='MIT', 
   description = 'An async python wrapper for the asuna api',
+  long_description=long_description,
+  long_description_content_type="text/markdown",
   author = 'JDJGIncOfficial',
   author_email = 'jdjgbot@gmail.com',
   url = 'https://github.com/JDJGInc/asuna_api',
