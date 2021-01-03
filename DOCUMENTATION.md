@@ -44,7 +44,7 @@ Here is explained what attributes the returned objects have
 
 ### Image
 ---
-The object returned from `client.get_gif`
+The object returned from `client.get_gif()`
 
 #### Image.url
 The url of the image
