@@ -4,7 +4,7 @@ setup(
   packages = ['asuna_api'],
   version = '0.1', 
   license='MIT', 
-  description = 'A python wrapper for the asuna api',
+  description = 'An async python wrapper for the asuna api',
   author = 'JDJGIncOfficial',
   author_email = 'jdjgbot@gmail.com',
   url = 'https://github.com/JDJGInc/asuna_api',
