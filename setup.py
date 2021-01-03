@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 setup(
   name = 'asuna_api',
   packages = ['asuna_api'],
