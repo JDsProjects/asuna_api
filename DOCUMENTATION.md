@@ -31,5 +31,27 @@ All available endpoints you can use.
 ---
 Get a random funny gif.
 
-**Available options:** "hug","kiss","neko","pat","slap","wholesome_foxes"
+**Available options:** `"hug"`,`"kiss"`,`"neko"`,`"pat"`,`"slap"`,`"wholesome_foxes"`
 
+**Parameters:**\
+**- option** *(string)*: The type of gif you want.
+
+**Return type:** [Image](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
+## Objects
+
+Here is explained what attributes the returned objects have
+
+### Image
+---
+The object returned from `client.get_gif`
+
+#### Image.url
+The url of the image
+
+#### *await* Image.read()
+This will return a bytes object from the image
+
+#### *await* Image.save(filepath)
+Locally save the image.\
+**Note:** 'filepath' requires a *full* path! e.g. `/home/John/myimage.png`
