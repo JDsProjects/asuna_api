@@ -5,9 +5,9 @@ setup(
   version = '0.1', 
   license='MIT', 
   description = 'A python wrapper for the asuna api',
-  author = 'YOUR NAME'
+  author = 'JDJGIncOfficial',
   author_email = 'your.email@domain.com',
-  url = 'https://github.com/user/reponame',
+  url = 'https://github.com/JDJGInc/asuna_api',
   download_url = 'https://github.com/user/reponame/archive/v_01.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
   install_requires=['aiohttp','yarl'],
