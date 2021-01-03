@@ -10,7 +10,7 @@ class HTTPClient:
   async def create_session(self):
     self.session = aiohttp.ClientSession()
 
-    # Send this request to the SR_API_BASE + path
+    # Send this request to the asuna.ga base + path
     # path is what comes after the / in the base url
     # **kwargs is passed to self.session.request along with the full url
 
