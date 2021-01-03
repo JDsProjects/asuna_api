@@ -32,7 +32,7 @@ class Client:
     url = response.get("url")
     return Image(self._http_client, url)
   
-  async def get_mchistory(self,username="JDJG_IncOfficial"):
+  async def mc_user(self,username=None):
     if username is None:
       raise InvalidUser(str(username) + " is not a valid option")
     response = await self._http_client.get(self.mchistory_username(username))
