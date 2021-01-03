@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 setup(
   name = 'asuna_api',
   packages = ['asuna_api'],
-  version = '0.3', 
+  version = '0.2.2', 
   license='MIT', 
   description = 'An async python wrapper for the asuna api',
   long_description=long_description,
