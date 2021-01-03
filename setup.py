@@ -2,7 +2,7 @@ from setuptools import setup
 setup(
   name = 'asuna_api',
   packages = ['asuna_api'],
-  version = '0.1', 
+  version = '0.2', 
   license='MIT', 
   description = 'An async python wrapper for the asuna api',
   author = 'JDJGIncOfficial',
