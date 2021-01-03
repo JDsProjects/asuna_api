@@ -1,7 +1,7 @@
 # asuna_api
 Python wrapper for asuna.ga
-I am not the creator the asuna api, and some of this code came from the iDutchy some-random-api project so credits to them.
-Credits to iDutchy for the Original source.
+I am not the creator the asuna api, and some of this code came from the [iDutchy some-random-api project](https://github.com/iDutchy/sr_api) so credits to them.
+Credits to iDutchy for the Original source and Thank You for letting me for using your source.
 
 For any questions and support for the wrapper, you can visit the [Discord support server](https://discord.gg/sHUQCch "JDJG Inc. Official's Blooper Server")
 
