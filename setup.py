@@ -8,7 +8,7 @@ setup(
   author = 'JDJGIncOfficial',
   author_email = 'jdjgbot@gmail.com',
   url = 'https://github.com/JDJGInc/asuna_api',
-  download_url = 'https://github.com/JDJGInc/asuna_api/archive/0.01.tar.gz',
+  download_url = 'https://github.com/JDJGInc/asuna_api/archive/0.0.02.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
   install_requires=['aiohttp','yarl'],
   classifiers=[
