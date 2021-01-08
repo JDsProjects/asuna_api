@@ -50,7 +50,8 @@ class Client:
       
     response = await self._http_client.get(self.asuna_api_url(name))
     url = response.get("url")
-    return Image(self._http_client, url)
+    filename = response.get("fileName")
+    return Image(self._http_client, url,filename)
   
   async def mc_user(self,username=None):
     if username is None:
