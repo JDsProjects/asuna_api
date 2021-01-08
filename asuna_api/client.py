@@ -23,6 +23,26 @@ class Client:
     url = URL.build(scheme="https", host= "asuna.ga/api", path="/"+endpoint.lstrip("/"))
     return str(url)
 
+  def sp46_history(self,number):
+    url = URL.build(scheme="https", host="history.geist.ga",path="/api/many",query={"amount":number})
+
+    return url
+  
+  async def random_history(self,number = None):
+    if number is None:
+      number = "1"
+    if isinstance(number,int):
+      number = str(number)
+    if number.isdigit() is False:
+      raise InputError(number + " is not a valid option!")
+
+    if int(number) < 0 or int(number) > 51:
+      raise InputError(number + " is not a valid option!")
+
+    response = await self._http_client.get(self.sp46_history(number))
+    results=response.get("results")
+    return results
+
   async def get_gif(self,name):
     options = ("hug","kiss","neko","pat","slap","wholesome_foxes")
     if not name.lower() in options:
