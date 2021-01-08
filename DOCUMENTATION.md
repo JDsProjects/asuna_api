@@ -49,12 +49,14 @@ Get the username history and UUID from a minecraft user.
 
 **Return type:** [MCuser](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
 
-# *client.random_history(number)*
+# *await client.random_history(number)*
 ---
 Get a random response from [SP46's api](https://history.geist.ga/api/many?amount=1)
 
 **Parameters:**\
 **-number** *(string or int)*: Amount of random quotes(1-50), defaults to 1.
+
+**Return type:** List
 
 ## Objects
 
