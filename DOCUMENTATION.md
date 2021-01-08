@@ -69,7 +69,7 @@ The object returned from `client.get_gif()`
 #### Image.url
 The url of the image
 
-###Image.filename
+### Image.filename
 This returns the full name of the file, however only for apis that return it, otherwise it may return as None.
 
 #### *await* Image.read()
