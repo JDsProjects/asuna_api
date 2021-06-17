@@ -14,9 +14,9 @@ class InvalidUser(Exception):
   pass
 
 class Client:
-  __slots__ = ("_http_client")
+  __slots__ = ("_http_client",)
    
-  def __init__(self,session: aiohttp.ClientSession = None):
+  def __init__(self, session: aiohttp.ClientSession = None):
     self._http_client = HTTPClient(session)
 
   def asuna_api_url(self,endpoint):
@@ -24,14 +24,14 @@ class Client:
     return str(url)
 
   def sp46_history(self,number):
-    url = URL.build(scheme="https", host="history.geist.ga",path="/api/many",query={"amount":number})
+    url = URL.build(scheme="https", host="history.geist.ga", path="/api/many", query={"amount":number})
 
     return url
   
-  async def random_history(self,number = None):
+  async def random_history(self, number = None):
     if number is None:
       number = "1"
-    if isinstance(number,int):
+    if isinstance(number, int):
       number = str(number)
     if number.isdigit() is False:
       raise InputError(number + " is not a valid option!")
@@ -53,12 +53,12 @@ class Client:
     filename = response.get("fileName")
     return Image(self._http_client, url,filename)
   
-  async def mc_user(self,username=None):
+  async def mc_user(self, username=None):
     if username is None:
       raise InvalidUser(str(username) + " is not a valid option")
     response = await self._http_client.get(self.mchistory_username(username))
 
-    if isinstance(response,dict):
+    if isinstance(response, dict):
       namehistory = await self._http_client.get(self.mchistory_uuid(response.get("id")))
       for x in namehistory:
         if "changedToAt" in x.keys():
@@ -72,15 +72,15 @@ class Client:
       mc_data = {"username":response["name"],"uuid":response["id"],"name_history":namehistory}
       return Minecraft(mc_data)
 
-    if isinstance(response,bytes):
+    if isinstance(response, bytes):
       raise InvalidUser(username + " is not a valid option")
 
-  def mchistory_username(self,username):
-    url = URL.build(scheme="https",host="api.mojang.com/users/profiles/minecraft",path="/"+username.lstrip("/"))
+  def mchistory_username(self, username):
+    url = URL.build(scheme="https", host="api.mojang.com/users/profiles/minecraft", path="/"+username.lstrip("/"))
     return str(url)
   
-  def mchistory_uuid(self,uuid):
-    url = URL.build(scheme="https",host="api.mojang.com/user/profiles",path="/"+uuid+"/names")
+  def mchistory_uuid(self, uuid):
+    url = URL.build(scheme="https", host = "api.mojang.com/user/profiles", path = "/"+uuid+"/names")
     return str(url)
 
   async def close(self):
