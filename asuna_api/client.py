@@ -7,11 +7,9 @@ from .minecraft import Minecraft
 
 class InputError(Exception):
   __slots__ = ()
-  pass
 
 class InvalidUser(Exception):
   __slots__ = ()
-  pass
 
 class Client:
   __slots__ = ("_http_client",)
