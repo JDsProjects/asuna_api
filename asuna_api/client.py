@@ -42,7 +42,7 @@ class Client:
         if isinstance(number, int):
             number = str(number)
         if number.isdigit() is False:
-            raise InputError(number + " is not a valid option!")
+            raise InputError(f"{number} is not a valid option!")
 
         if int(number) < 0 or int(number) > 51:
             raise InputError(number + " is not a valid option!")
