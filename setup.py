@@ -4,19 +4,19 @@ with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="asuna_api",
-    packages=["asuna_api"],
-    version="0.2.8",
-    license="MIT",
-    description="An async python wrapper for the asuna api",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    author="JDJGIncOfficial",
-    author_email="jdjgbot@gmail.com",
-    url="https://github.com/JDJGInc/asuna_api",
-    download_url="https://github.com/JDJGInc/asuna_api/archive/0.1.1.tar.gz",
-    keywords=["wrapper", "api", "random"],
-    install_requires=["aiohttp", "yarl"],
+    name= "asuna_api",
+    packages= ["asuna_api"],
+    version= "0.2.8",
+    license= "MIT",
+    description= "An async python wrapper for the asuna api",
+    long_description= long_description,
+    long_description_content_type= "text/markdown",
+    author= "JDJGIncOfficial",
+    author_email= "jdjgbot@gmail.com",
+    url= "https://github.com/JDJGInc/asuna_api",
+    download_url= "https://github.com/JDJGInc/asuna_api/archive/0.1.1.tar.gz",
+    keywords= ["wrapper", "api", "random"],
+    install_requires= ["aiohttp", "yarl"],
     classifiers=[
         "Development Status :: 3 - Alpha",  # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         "Intended Audience :: Developers",  # Define that your audience are developers
