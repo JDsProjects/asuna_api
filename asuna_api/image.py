@@ -17,7 +17,7 @@ class Image:
     async def read(self):
         return await self._http_client.get(self.url)
 
-    async def save(self, fp, seek_start=True):
+    async def save(self, fp, seek_start = True):
         data = await self.read()
         if isinstance(fp, io.IOBase) and fp.writable():
             written = fp.write(data)
