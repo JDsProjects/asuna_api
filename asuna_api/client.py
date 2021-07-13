@@ -22,8 +22,9 @@ class Client:
 
     def asuna_api_url(self, endpoint):
         url = URL.build(
-            scheme="https", host="asuna.ga/api", path="/" + endpoint.lstrip("/")
+            scheme = "https", host = "asuna.ga/api", path="/" + endpoint.lstrip("/")
         )
+        
         return str(url)
 
     def sp46_history(self, number):
@@ -36,7 +37,7 @@ class Client:
 
         return url
 
-    async def random_history(self, number=None):
+    async def random_history(self, number = None):
         if number is None:
             number = "1"
         if isinstance(number, int):
@@ -61,9 +62,10 @@ class Client:
         filename = response.get("fileName")
         return Image(self._http_client, url, filename)
 
-    async def mc_user(self, username=None):
+    async def mc_user(self, username = None):
         if username is None:
             raise InvalidUser(str(username) + " is not a valid option")
+            
         response = await self._http_client.get(self.mchistory_username(username))
 
         if isinstance(response, dict):
