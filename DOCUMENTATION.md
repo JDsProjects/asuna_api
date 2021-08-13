@@ -105,3 +105,10 @@ This returns the dictionary but as a list of datetime objects
 
 ##Mcuser.from_dict
 This returns a list of objects that the library can use to later make it easier to handle stuff rather than doing [""] or .get[""] you can use the attributes(check the source for that)
+
+```python
+
+doing:
+.name will return name
+changed_at = data.get("changedToAt")
+time_changed_at may return none I don't fully remember.
