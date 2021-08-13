@@ -69,17 +69,19 @@ class Client:
         response = await self._http_client.get(self.mchistory_username(username))
 
         if isinstance(response, dict):
-            namehistory = await self._http_client.get(
-                self.mchistory_uuid(response.get("id"))
+            api_response = await self._http_client.get(
+              self.mchistory_uuid(response.get("id"))
             )
-            for x in namehistory:
+
+            for x in api_response:
                 if "changedToAt" in x.keys():
                     x["timeChangedAt"] = datetime.datetime.utcfromtimestamp(
                         int(x["changedToAt"]) / 1000
-                    ).strftime("%H:%M:%S")
+                    )
+                    
                     x["changedToAt"] = datetime.datetime.utcfromtimestamp(
                         int(x["changedToAt"]) / 1000
-                    ).strftime("%Y-%m-%d")
+                    )
 
                 if not "changedToAt" in x.keys():
                     x["changedToAt"] = "Original Name"
@@ -87,8 +89,9 @@ class Client:
             mc_data = {
                 "username": response["name"],
                 "uuid": response["id"],
-                "name_history": namehistory,
+                "name_history": api_response,
             }
+            
             return Minecraft(mc_data)
 
         if isinstance(response, bytes):
