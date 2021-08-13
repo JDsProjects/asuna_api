@@ -6,6 +6,9 @@ class Minecraft:
         self.uuid = data.get("uuid")
         self.history = data.get("name_history")
 
+    def __str__(self):
+        return self.name if self.name else None
+
     @property
     def formatted_history(self):
         d = self.history
