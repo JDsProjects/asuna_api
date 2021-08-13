@@ -15,7 +15,9 @@ class InvalidUser(Exception):
 
 
 class Client:
-    __slots__ = ("_http_client",)
+    __slots__ = (
+        "_http_client"
+    )
 
     def __init__(self, session: aiohttp.ClientSession = None):
         self._http_client = HTTPClient(session)
@@ -25,17 +27,19 @@ class Client:
             scheme = "https", host = "asuna.ga/api", path="/" + endpoint.lstrip("/")
         )
         
-        return str(url)
+        return f"{url}"
 
     def sp46_history(self, number):
         url = URL.build(
             scheme="https",
             host="history.geist.ga",
             path="/api/many",
-            query={"amount": number},
+            query={"amount": number}
         )
 
         return url
+
+    #doesn't seem to exist right now, which means I am currently waiting on the new api link(the api link)
 
     async def random_history(self, number = None):
         if number is None:
@@ -46,7 +50,7 @@ class Client:
             raise InputError(f"{number} is not a valid option!")
 
         if int(number) < 0 or int(number) > 51:
-            raise InputError(number + " is not a valid option!")
+            raise InputError(f"{number} is not a valid option!")
 
         response = await self._http_client.get(self.sp46_history(number))
         results = response.get("results")
@@ -55,7 +59,7 @@ class Client:
     async def get_gif(self, name):
         options = ("hug", "kiss", "neko", "pat", "slap", "wholesome_foxes")
         if not name.lower() in options:
-            raise InputError(name + " is not a valid option!")
+            raise InputError(f"{name} is not a valid option!")
 
         response = await self._http_client.get(self.asuna_api_url(name))
         url = response.get("url")
@@ -64,7 +68,7 @@ class Client:
 
     async def mc_user(self, username = None):
         if username is None:
-            raise InvalidUser(str(username) + " is not a valid option")
+            raise InvalidUser(f"{username} is not a valid option")
             
         response = await self._http_client.get(self.mchistory_username(username))
 
@@ -73,35 +77,35 @@ class Client:
               self.mchistory_uuid(response.get("id"))
             )
 
-            for x in api_response:
-                if "changedToAt" in x.keys():
-                    x["timeChangedAt"] = datetime.datetime.utcfromtimestamp(
-                        int(x["changedToAt"]) / 1000
+            for json in api_response:
+                if "changedToAt" in json.keys():
+                    json["timeChangedAt"] = datetime.datetime.utcfromtimestamp(
+                        int(json["changedToAt"]) / 1000
                     )
                     
-                    x["changedToAt"] = datetime.datetime.utcfromtimestamp(
-                        int(x["changedToAt"]) / 1000
+                    json["changedToAt"] = datetime.datetime.utcfromtimestamp(
+                        int(json["changedToAt"]) / 1000
                     )
 
-                if not "changedToAt" in x.keys():
-                    x["changedToAt"] = "Original Name"
+                if not "changedToAt" in json.keys():
+                    json["changedToAt"] = "Original Name"
 
             mc_data = {
                 "username": response["name"],
                 "uuid": response["id"],
-                "name_history": api_response,
+                "name_history": api_response
             }
             
             return Minecraft(mc_data)
 
         if isinstance(response, bytes):
-            raise InvalidUser(username + " is not a valid option")
+            raise InvalidUser(f"{username} is not a valid option")
 
     def mchistory_username(self, username):
         url = URL.build(
             scheme="https",
             host="api.mojang.com/users/profiles/minecraft",
-            path="/" + username.lstrip("/"),
+            path=f"/{username.lstrip('/')}"
         )
         return str(url)
 
@@ -109,7 +113,7 @@ class Client:
         url = URL.build(
             scheme="https",
             host="api.mojang.com/user/profiles",
-            path="/" + uuid + "/names",
+            path=f"/{uuid}/names",
         )
         return str(url)
 

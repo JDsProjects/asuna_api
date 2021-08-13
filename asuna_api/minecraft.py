@@ -1,7 +1,11 @@
 import datetime 
 
 class HistoryConverter:
-  _slots = ("name", "changedToAt", "timeChangedAt")
+  _slots = (
+      "name",
+      "changedToAt",
+      "timeChangedAt"
+    )
 
   def __init__(self, data):
         self.name = data.get("name")
@@ -12,7 +16,11 @@ class HistoryConverter:
       return self.name if self.name else None
 
 class Minecraft:
-    __slots__ = ("name", "uuid", "datetime_history")
+    __slots__ = (
+        "name",
+        "uuid",
+        "datetime_history"
+    )
 
     def __init__(self, data):
         self.name = data.get("username")
@@ -24,40 +32,40 @@ class Minecraft:
 
     @property
     def history(self):
-      for x in self.datetime_history:
-        y = x["changedToAt"]
-        if isinstance(y, datetime.datetime):
-          x["timeChangedAt"] = y.strftime("%H:%M:%S")
-          x["changedToAt"] = y.strftime("%Y-%m-%d")
+      for json in self.datetime_history:
+        changed_at = json["changedToAt"]
+        if isinstance(changed_at, datetime.datetime):
+          json["timeChangedAt"] = changed_at.strftime("%H:%M:%S")
+          json["changedToAt"] = changed_at.strftime("%Y-%m-%d")
 
       return self.datetime_history
 
     @property
     def from_dict(self):
-        d = self.datetime_history
-        return [HistoryConverter(obj) for obj in d]
+        datetime_history = self.datetime_history
+        return [HistoryConverter(obj) for obj in datetime_history]
 
     @property
     def formatted_history(self):
 
-        d = self.history
+        history = self.history
 
         formatted = ""
-        for x in d:
+        for json in history:
             formatted += (
-                f"{x['changedToAt'].replace('Origanal', 'Original')} >> {x['name']}\n"
+                f"{json['changedToAt'].replace('Origanal', 'Original')} >> {json['name']}\n"
             )
 
         return formatted
 
     @property
     def reversed_formatted_history(self):
-        d = self.history
+        history = self.history
 
         formatted = ""
-        for x in d[::-1]:
+        for json in history[::-1]:
             formatted += (
-                f"{x['changedToAt'].replace('Origanal', 'Original')} >> {x['name']}\n"
+                f"{json['changedToAt'].replace('Origanal', 'Original')} >> {json['name']}\n"
             )
 
         return formatted
