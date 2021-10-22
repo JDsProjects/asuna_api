@@ -27,14 +27,14 @@ class Client:
             scheme = "https", host = "asuna.ga/api", path="/" + endpoint.lstrip("/")
         )
         
-        return str(url)
+        return f"{url}"
 
     def sp46_history(self, number):
         url = URL.build(
             scheme="https",
             host="history.geist.ga",
             path="/api/many",
-            query={"amount": number},
+            query={"amount": number}
         )
 
         return url
@@ -50,7 +50,7 @@ class Client:
             raise InputError(f"{number} is not a valid option!")
 
         if int(number) < 0 or int(number) > 51:
-            raise InputError(number + " is not a valid option!")
+            raise InputError(f"{number} is not a valid option!")
 
         response = await self._http_client.get(self.sp46_history(number))
         results = response.get("results")
@@ -68,7 +68,7 @@ class Client:
 
     async def mc_user(self, username = None):
         if username is None:
-            raise InvalidUser(str(username) + " is not a valid option")
+            raise InvalidUser(f"{username} is not a valid option")
             
         response = await self._http_client.get(self.mchistory_username(username))
 
@@ -105,7 +105,7 @@ class Client:
         url = URL.build(
             scheme="https",
             host="api.mojang.com/users/profiles/minecraft",
-            path="/" + username.lstrip("/"),
+            path=f"/{username.lstrip('/')}"
         )
         return str(url)
 

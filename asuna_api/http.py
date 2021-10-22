@@ -2,7 +2,9 @@ import aiohttp
 
 
 class HTTPClient:
-    __slots__ = "session"
+    __slots__ = (
+        "session"
+    )
 
     def __init__(self, session=None):
         self.session = session
@@ -22,7 +24,7 @@ class HTTPClient:
         async with self.session.get(url, **kwargs) as response:
             if not (300 > response.status >= 200):
                 # TODO: Seperate exception for statuses raised
-                raise ValueError("Raised " + str(response.status))
+                raise ValueError(f"Raised {response.status}")
 
             try:
                 content = await response.json()
