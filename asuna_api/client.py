@@ -59,7 +59,7 @@ class Client:
     async def get_gif(self, name):
         options = ("hug", "kiss", "neko", "pat", "slap", "wholesome_foxes")
         if not name.lower() in options:
-            raise InputError(name + " is not a valid option!")
+            raise InputError(f"{name} is not a valid option!")
 
         response = await self._http_client.get(self.asuna_api_url(name))
         url = response.get("url")
