@@ -37,6 +37,8 @@ class Client:
 
         return url
 
+    #doesn't seem to exist right now, which means I am currently waiting on the new api link
+
     async def random_history(self, number = None):
         if number is None:
             number = "1"
