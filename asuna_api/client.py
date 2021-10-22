@@ -15,7 +15,9 @@ class InvalidUser(Exception):
 
 
 class Client:
-    __slots__ = ("_http_client",)
+    __slots__ = (
+        "_http_client"
+    )
 
     def __init__(self, session: aiohttp.ClientSession = None):
         self._http_client = HTTPClient(session)
@@ -37,7 +39,7 @@ class Client:
 
         return url
 
-    #doesn't seem to exist right now, which means I am currently waiting on the new api link
+    #doesn't seem to exist right now, which means I am currently waiting on the new api link(the api link)
 
     async def random_history(self, number = None):
         if number is None:
@@ -75,29 +77,29 @@ class Client:
               self.mchistory_uuid(response.get("id"))
             )
 
-            for x in api_response:
-                if "changedToAt" in x.keys():
-                    x["timeChangedAt"] = datetime.datetime.utcfromtimestamp(
-                        int(x["changedToAt"]) / 1000
+            for json in api_response:
+                if "changedToAt" in json.keys():
+                    json["timeChangedAt"] = datetime.datetime.utcfromtimestamp(
+                        int(json["changedToAt"]) / 1000
                     )
                     
-                    x["changedToAt"] = datetime.datetime.utcfromtimestamp(
-                        int(x["changedToAt"]) / 1000
+                    json["changedToAt"] = datetime.datetime.utcfromtimestamp(
+                        int(json["changedToAt"]) / 1000
                     )
 
-                if not "changedToAt" in x.keys():
-                    x["changedToAt"] = "Original Name"
+                if not "changedToAt" in json.keys():
+                    json["changedToAt"] = "Original Name"
 
             mc_data = {
                 "username": response["name"],
                 "uuid": response["id"],
-                "name_history": api_response,
+                "name_history": api_response
             }
             
             return Minecraft(mc_data)
 
         if isinstance(response, bytes):
-            raise InvalidUser(username + " is not a valid option")
+            raise InvalidUser(f"{username} is not a valid option")
 
     def mchistory_username(self, username):
         url = URL.build(
@@ -111,7 +113,7 @@ class Client:
         url = URL.build(
             scheme="https",
             host="api.mojang.com/user/profiles",
-            path="/" + uuid + "/names",
+            path=f"/{uuid}/names",
         )
         return str(url)
 
