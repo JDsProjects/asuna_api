@@ -15,8 +15,8 @@ To begin with, you'll have to install the package by doing one of the following 
 
 Or you can install directly from source by doing one of the following commands:
 
-- `pip install -U git+https://github.com/JDJGInc/asuna_api`
-- `python -m pip install -U git+https://github.com/JDJGInc/asuna_api`
+- `pip install -U git+https://github.com/Senarc-Studios/asuna_api`
+- `python -m pip install -U git+https://github.com/Senarc-Studios/asuna_api`
 
 After that, you will have to create the client:
 
@@ -44,7 +44,7 @@ Get a random funny gif.
 **Parameters:**\
 **- option** *(string)*: The type of gif you want.
 
-**Return type:** [Image](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+**Return type:** [Image](https://github.com/Senarc-Studios/asuna_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ### *await* client.mc_user(username)
 
@@ -54,7 +54,7 @@ Get the username history and UUID from a minecraft user.
 **Parameters:**\
 **- username** *(string)*: Name of the minecraft user.
 
-**Return type:** [MCuser](https://github.com/JDJGInc/asuna_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
+**Return type:** [MCuser](https://github.com/Senarc-Studios/asuna_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
 
 # *await client.random_history(number)*
 
