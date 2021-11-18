@@ -13,8 +13,8 @@ setup(
     long_description_content_type= "text/markdown",
     author= "JDJGIncOfficial",
     author_email= "jdjgbot@gmail.com",
-    url= "https://github.com/JDJGInc/asuna_api",
-    download_url= "https://github.com/JDJGInc/asuna_api/archive/0.1.2.tar.gz",
+    url= "https://github.com/Senarc-Studios/asuna_api",
+    download_url= "hhttps://github.com/Senarc-Studios/asuna_api/archive/0.1.2.tar.gz",
     keywords= ["wrapper", "api", "random"],
     install_requires= ["aiohttp", "yarl"],
     classifiers= [
