@@ -3,7 +3,7 @@ Python wrapper for asuna.ga
 I'm not the creator of asuna api, and some of the code came from the [iDutchy some-random-api project](https://github.com/iDutchy/sr_api) so credits to them.
 Credits to iDutchy for the Original source and Thank You for letting me use your code.
 
-For any questions and support for the wrapper, you can visit the [Discord support server](https://discord.gg/sHUQCch "JDJG Inc. Official's Blooper Server") or DM me on Discord at JDJG Inc. Official#3493. 
+For any questions and support for the wrapper, you can visit the [Discord support server](https://discord.gg/eVQH2ZRYpz "JDJG Inc. Official's Server") or DM me on Discord at JDJG Inc. Official#3493. 
 
 [Alternative Discord Server](https://discord.gg/fVTguWrhxY)
 
