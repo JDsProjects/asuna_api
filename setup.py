@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 setup(
     name= "asuna_api",
     packages= ["asuna_api"],
-    version= "0.3.0",
+    version= "0.3.1",
     license= "MIT",
     description= "An async python wrapper for the asuna api",
     long_description= long_description,
@@ -14,7 +14,7 @@ setup(
     author= "JDJGIncOfficial",
     author_email= "jdjgbot@gmail.com",
     url= "https://github.com/Senarc-Studios/asuna_api",
-    download_url= "https://github.com/Senarc-Studios/asuna_api/archive/0.1.3.tar.gz",
+    download_url= "https://github.com/Senarc-Studios/asuna_api/archive/0.1.4.tar.gz",
     keywords= ["wrapper", "api", "random"],
     install_requires= ["aiohttp", "yarl"],
     classifiers= [
