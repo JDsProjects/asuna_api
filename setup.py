@@ -14,7 +14,7 @@ setup(
     author= "JDJGIncOfficial",
     author_email= "jdjgbot@gmail.com",
     url= "https://github.com/Senarc-Studios/asuna_api",
-    download_url= "https://github.com/Senarc-Studios/asuna_api/archive/0.1.4.tar.gz",
+    download_url= "https://github.com/Senarc-Studios/asuna_api/archive/0.1.5.tar.gz",
     keywords= ["wrapper", "api", "random"],
     install_requires= ["aiohttp", "yarl"],
     classifiers= [
