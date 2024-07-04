@@ -1,6 +1,6 @@
 [project]
 name = "asuna_api"
-version = "0.3.1"
+version = "0.3.2"
 description = "An async python wrapper for the asuna api"
 authors = [{ name = "JDJG3493", email = "jdjgbot@gmail.com" }]
 license = { text = "MIT" }
