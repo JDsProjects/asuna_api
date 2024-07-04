@@ -4,7 +4,6 @@ on:
   push:
     tags: ["*.*.*"]
 
-
 jobs:
   build:
     name: Build distribution 📦
@@ -51,15 +50,15 @@ jobs:
       id-token: write
 
     steps:
-    - name: Download dists
-      uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
-      with:
-        name: python-package-distributions
-        path: dist/
+      - name: Download dists
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
+        with:
+          name: python-package-distributions
+          path: dist/
 
-    - name: Publish distribution 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@81e9d935c883d0b210363ab89cf05f3894778450 # v1.8.14
-      with:
+      - name: Publish distribution 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@81e9d935c883d0b210363ab89cf05f3894778450 # v1.8.14
+        with:
           password: ${{ secrets.PYPI_API_TOKEN }}
           verbose: true
           print-hash: true
