@@ -11,7 +11,7 @@ setup(
     description= "An async python wrapper for the asuna api",
     long_description= long_description,
     long_description_content_type= "text/markdown",
-    author= "JDJGIncOfficial",
+    author= "JDJG3493",
     author_email= "jdjgbot@gmail.com",
     url= "https://github.com/Senarc-Studios/asuna_api",
     download_url= "https://github.com/Senarc-Studios/asuna_api/archive/0.1.5.tar.gz",
