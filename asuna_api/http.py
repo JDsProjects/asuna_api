@@ -2,9 +2,7 @@ import aiohttp
 
 
 class HTTPClient:
-    __slots__ = (
-        "session"
-    )
+    __slots__ = "session"
 
     def __init__(self, session=None):
         self.session = session
