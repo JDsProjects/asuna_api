@@ -1,28 +1,45 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING, Any, ClassVar
+
 import aiohttp
+
+from .enums import Endpoint
+from .errors import BadRequest, Forbidden, HTTPError, NotFound
+
+if TYPE_CHECKING:
+    from ._types import EndpointResult, Base
 
 
 class HTTPClient:
-    __slots__ = "session"
+    BASE_URL: ClassVar[str] = "https://asuna.ga/api"
+    __slots__: tuple[str, ...] = ("_session", "_session_owner")
 
-    def __init__(self, session=None):
-        self.session = session
+    def __init__(self, session: aiohttp.ClientSession | None = None) -> None:
+        self._session: aiohttp.ClientSession | None = session
+        self._session_owner: bool = session is None
 
-    # Aiohttp client sessions must be created in async functions
-    async def create_session(self):
-        self.session = aiohttp.ClientSession()
+    async def create_session(self) -> aiohttp.ClientSession:
+        if self._session and not self._session.closed:
+            return self._session
 
-        # Send this request to the asuna.ga base + path
-        # path is what comes after the / in the base url
-        # **kwargs is passed to self.session.request along with the full url
+        self._session = aiohttp.ClientSession()
+        return self._session
 
-    async def get(self, url, **kwargs):
-        if self.session is None:
-            await self.create_session()
+    async def get(
+        self, url: str | Endpoint, **kwargs: Any
+    ) -> Base | EndpointResult | bytes:
+        session = await self.create_session()
 
-        async with self.session.get(url, **kwargs) as response:
-            if not (300 > response.status >= 200):
-                # TODO: Seperate exception for statuses raised
-                raise ValueError(f"Raised {response.status}")
+        url = f"{self.BASE_URL}/{url.value}" if isinstance(url, Endpoint) else url
+        async with session.get(url, **kwargs) as response:
+            if response.status == 404:
+                raise NotFound(f"Resource not found: {url}")
+            elif response.status == 400:
+                raise BadRequest(f"Bad request: {url}")
+            elif response.status == 403:
+                raise Forbidden(f"Access forbidden: {url}")
+            elif response.status != 200:
+                raise HTTPError(response.status, await response.text())
 
             try:
                 content = await response.json()
@@ -31,7 +48,7 @@ class HTTPClient:
 
             return content
 
-    async def close(self):
-        if self.session is not None:
-            await self.session.close()
-            self.session = None
+    async def close(self) -> None:
+        if self._session and self._session_owner and not self._session.closed:
+            await self._session.close()
+            self._session = None
